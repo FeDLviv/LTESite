@@ -1,0 +1,67 @@
+.flex-component {
+  height: 100vh;
+  overflow: auto;
+}
+
+
+
+/*ДЕРЕВО*/
+div[data-angular-treeview] {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none;
+    color: #555;
+    text-decoration: none;
+
+    font-size: 1.2em;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+  
+  div[data-tree-model] ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /*border: none;
+    overflow: hidden;*/
+  }
+  
+  div[data-tree-model] li {
+    padding: 0.2em 1em;
+    white-space: nowrap;
+    /*position: relative;*/
+    /*line-height: 20px;*/
+  }
+  
+  div[data-tree-model] li .expanded:before {
+    font-family: FontAwesome;
+    content: "\f07c";
+    font-style: normal;
+  }
+  
+  div[data-tree-model] li .collapsed:before {
+    font-family: FontAwesome;
+    content: "\f07b";
+    font-style: normal;
+  }
+  
+  div[data-tree-model] li .normal:before {
+    font-family: FontAwesome;
+    content: "\f015";
+    font-style: normal;
+    cursor: default;
+  }
+  
+  div[data-tree-model] li i,
+  div[data-tree-model] li span {
+    cursor: pointer;
+  }
+  
+  div[data-tree-model] li .selected {
+    background-color: #aaddff;
+    font-weight: bold;
+    padding: 0;
+    /* padding: 1px 5px; */
+  }
