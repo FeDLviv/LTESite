@@ -1,6 +1,6 @@
 <?php
 
-spl_autoload_register(function($className) {
+spl_autoload_register(function ($className) {
     include $className.".php";
 });
 
@@ -13,8 +13,6 @@ WHERE
     idObject = ?;
 HERE;
 
-if(isset($_GET["idObject"])) {
+if (isset($_GET["idObject"])) {
     echo MyDB::getInstance()->select($query, trim($_GET["idObject"]));
 }
-
-?>

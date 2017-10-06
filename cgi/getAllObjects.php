@@ -1,6 +1,6 @@
 <?php
 
-spl_autoload_register(function($className) {
+spl_autoload_register(function ($className) {
     include $className.".php";
 });
 
@@ -21,5 +21,3 @@ ORDER BY
 HERE;
 
 echo MyDB::getInstance()->select($query);
-
-?>

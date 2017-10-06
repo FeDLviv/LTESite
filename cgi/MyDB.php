@@ -1,6 +1,7 @@
 <?php
 
-class MyDB {
+class MyDB
+{
 
     const HOST = "localhost";
     const DB = "lte_energo";
@@ -13,27 +14,28 @@ class MyDB {
 
     public static function getInstance()
     {
-        if (self::$instance === null)
-        {
+        if (self::$instance === null) {
             self::$instance = new self;
         }
         return self::$instance;
     }
 
-    private function __construct() {
+    private function __construct()
+    {
         try {
-            $this->pdo = new PDO("mysql:host=".MyDB::HOST.";dbname=".MyDB::DB.";charset=utf8", MyDB::USER, MyDB::PASSWORD);        
+            $this->pdo = new PDO("mysql:host=".MyDB::HOST.";dbname=".MyDB::DB.";charset=utf8", MyDB::USER, MyDB::PASSWORD);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             header("HTTP/1.1 500 Internal Server Error");
             echo $e->getMessage();
             die();
         }
     }
 
-    public function select($query) {
+    public function select($query)
+    {
         try {
-            if(count(func_get_args()) == 1) {
+            if (count(func_get_args()) == 1) {
                 $statement = $this->pdo->query($query);
                 $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
                 return json_encode($rows, JSON_NUMERIC_CHECK);
@@ -53,11 +55,8 @@ class MyDB {
             die();
         }
     }
-
 }
     //$statement = $pdo->query("SELECT * FROM objects;");
     //while($row = $statement->fetch(PDO::FETCH_ASSOC)){
     //    echo "{$row['address']}<br>";
     //}
-?>
-

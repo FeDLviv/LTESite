@@ -14,7 +14,7 @@ myApp.factory('userService', function () {
             user = name;
             authorized = true;
         },
-        logout: function() {
+        logout: function () {
             user = undefined;
             authorized = false;
         }
