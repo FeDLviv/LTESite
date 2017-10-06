@@ -1,5 +1,9 @@
 <div class="row">
     <label for="">Авторизація:
-        <input type="text">
+        <input type="text" placeholder="Користувач" data-ng-model="user">
     </label>
+    <label for="">Пароль:
+        <input type="password" placeholder="Пароль" data-ng-model="password">
+    </label>
+    <button data-ng-click="authorized()">Ввійти</button>
 </div>
