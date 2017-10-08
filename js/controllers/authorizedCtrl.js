@@ -1,4 +1,5 @@
 myApp.controller('authorizedCtrl', function ($scope, $http, $location, userService) {
+    $scope.modalShow = false;
     $scope.authorized = function () {
         $http.post('../cgi/authorized.php', "user=" + $scope.user + "&password=" + $scope.password, {
             headers: {
@@ -9,7 +10,7 @@ myApp.controller('authorizedCtrl', function ($scope, $http, $location, userServi
                 userService.authorization(response.data.user);
                 $location.path("/main");
             } else {
-                alert("Ви не авторизовані");
+                $scope.modalShow = true;
             }
         });
     };

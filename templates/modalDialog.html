@@ -1,0 +1,10 @@
+<div data-ng-show='show'>
+    <div class='modal-screen' data-ng-click='hideDialog()'></div>
+    <div class='modal-dialog' data-ng-style='dialogStyle'>
+        <p class="modal-head">"БД ЕС Львівтеплоенерго"</p>
+        <hr>
+        <div class="px-3 py-1" data-ng-transclude></div>
+        <hr>
+        <button class="btn btn-primary m-2 float-right" data-ng-click="hideDialog()">OK</button>
+    </div>
+</div>

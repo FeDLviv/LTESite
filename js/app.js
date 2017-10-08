@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute']); //, 'ui.grid'
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate']); //'ui.grid'
 
 myApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/main', {

@@ -56,7 +56,3 @@ class MyDB
         }
     }
 }
-    //$statement = $pdo->query("SELECT * FROM objects;");
-    //while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-    //    echo "{$row['address']}<br>";
-    //}

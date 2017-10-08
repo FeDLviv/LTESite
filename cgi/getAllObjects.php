@@ -1,5 +1,7 @@
 <?php
 
+require_once("access.php");
+
 spl_autoload_register(function ($className) {
     include $className.".php";
 });
