@@ -1,6 +1,6 @@
 myApp.controller('motorsCtrl', function ($scope, $http) {
 
-    $http.get("../cgi/getAllObjects.php").then(function (response) {
+    $http.get("../cgi/objects.php").then(function (response) {
         createObjectTree(response.data);
     }, function (response) {
         alert(response.statusText + " " + response.data);
@@ -8,7 +8,7 @@ myApp.controller('motorsCtrl', function ($scope, $http) {
 
     $scope.$watch('objectsTree.currentNode', function (newObj, oldObj) {
         if ($scope.objectsTree && angular.isObject($scope.objectsTree.currentNode) && !$scope.objectsTree.currentNode.children.length) {
-            $http.get("../cgi/getMotorsByIdObject.php", {
+            $http.get("../cgi/motors.php", {
                 params: {
                     idObject: $scope.objectsTree.currentNode.id
                 }
