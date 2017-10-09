@@ -112,6 +112,13 @@
 }
 
 
+/* СТИЛЬ НЕАКТИВНОЇ КНОПКИ */
+
+.btn:disabled {
+  cursor: not-allowed;
+}
+
+
 /* СТИЛЬ ФІКСОВАНИХ ЕЛЕМЕНТІВ */
 
 .flex-component {
