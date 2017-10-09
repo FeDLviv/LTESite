@@ -28,7 +28,7 @@ class MyDB
         } catch (PDOException $e) {
             header("HTTP/1.1 500 Internal Server Error");
             echo $e->getMessage();
-            die();
+            exit();
         }
     }
 
@@ -52,7 +52,7 @@ class MyDB
         } catch (PDOException $e) {
             header("HTTP/1.1 500 Internal Server Error");
             echo $e->getMessage();
-            die();
+            exit();
         }
     }
 }
