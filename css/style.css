@@ -1,6 +1,27 @@
+/* СТИЛЬ AngularJS ДЛЯ ПРИХОВУВАННЯ КОМПОНЕНТІВ */
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+
+
+/* СТИЛЬ ДЛЯ ВІДКЛЮЧЕННЯ АНІМАЦІЇ */
+
+.no-animate {
+  -webkit-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+
 /* СТИЛЬ АНІМАЦІЇ AngularJS */
 
-.ng-animate {
+.animation.ng-animate {
   -webkit-transition: all ease-in 0.25s;
   -o-transition: all ease-in 0.25s;
   transition: all ease-in 0.25s;
@@ -9,8 +30,8 @@
 
 /* СТИЛІ АНІМАЦІЙ AngularJS (ng-repeat) */
 
-.ng-enter-stagger,
-.ng-leave-stagger {
+.animation.ng-enter-stagger,
+.animation.ng-leave-stagger {
   -webkit-transition-delay: 0.2s;
   -o-transition-delay: 0.2s;
   transition-delay: 0.2s;
@@ -23,31 +44,31 @@
 /* СТИЛІ АНІМАЦІЙ AngularJS  (ng-view, ng-repeat, ng-if, ng-switch, ng-class, ng-include, ng-message) 
 ПОЧАТОК ВІДОБРАЖЕННЯ ЕЛЕМЕНТА */
 
-.ng-enter {}
+.animation.ng-enter {}
 
 
 /* СТИЛІ АНІМАЦІЙ AngularJS  (ng-view, ng-repeat, ng-if, ng-switch, ng-class, ng-include, ng-message) 
 ЗАКІНЧЕННЯ ВІДОБРАЖЕННЯ ЕЛЕМЕНТА */
 
-.ng-enter-active {}
+.animation.ng-enter-active {}
 
 
 /* СТИЛІ АНІМАЦІЙ AngularJS (ng-view, ng-repeat, ng-if, ng-switch, ng-class, ng-include, ng-message) 
 ПОЧАТОК ПРИХОВУВАННЯ ЕЛЕМЕНТА */
 
-.ng-leave {}
+.animation.ng-leave {}
 
 
 /* СТИЛІ АНІМАЦІЙ AngularJS (ng-view, ng-repeat, ng-if, ng-switch, ng-class, ng-include, ng-message) 
 ПОЧАТОК ПРИХОВУВАННЯ ЕЛЕМЕНТА */
 
-.ng-leave-active {}
+.animation.ng-leave-active {}
 
 
 /* СТИЛІ АНІМАЦІЙ AngularJS (ng-show ng-hide) 
 ПОЧАТОК ВІДОБРАЖЕННЯ ЕЛЕМЕНТА */
 
-.ng-hide-remove {
+.animation.ng-hide-remove {
   opacity: 0;
 }
 
@@ -55,7 +76,7 @@
 /* СТИЛІ АНІМАЦІЙ AngularJS (ng-show ng-hide) 
 ЗАКІНЧЕННЯ ВІДОБРАЖЕННЯ ЕЛЕМЕНТА */
 
-.ng-hide-remove-active {
+.animation.ng-hide-remove-active {
   opacity: 1;
 }
 
@@ -63,7 +84,7 @@
 /* СТИЛІ АНІМАЦІЙ AngularJS (ng-show ng-hide) 
 ПОЧАТОК ПРИХОВУВАННЯ ЕЛЕМЕНТА */
 
-.ng-hide-add {
+.animation.ng-hide-add {
   opacity: 1;
 }
 
@@ -71,15 +92,31 @@
 /* СТИЛІ АНІМАЦІЙ AngularJS (ng-show ng-hide) 
 ЗАКІНЧЕННЯ ПРИХОВУВАННЯ ЕЛЕМЕНТА */
 
-.ng-hide-add-active {
+.animation.ng-hide-add-active {
   opacity: 0;
+}
+
+
+/* СТИЛЬ ФОРМИ АВТОРИЗАЦІЇ  */
+
+#authorized {
+  border: 5px solid #428bca;
+  border-radius: 15px;
+  background: -webkit-linear-gradient(135deg, #999, #ddd);
+  background: -o-linear-gradient(135deg, #999, #ddd);
+  background: linear-gradient(-45deg, #999, #ddd)
+}
+
+#authorized label {
+  font-size: 1.3em;
 }
 
 
 /* СТИЛЬ ФІКСОВАНИХ ЕЛЕМЕНТІВ */
 
 .flex-component {
-  height: 100vh;
+  margin-top: 3em;
+  height: calc(100vh - 3em);
   overflow: auto;
 }
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>БД ЕС Львівтеплоенерго</title>
+    <title>{{appName}}</title>
     <!-- Bootstrap 4.0.0 -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Font awesome 4.7.0 -->
@@ -19,8 +19,19 @@
 <body data-ng-controller="mainCtrl">
 
     <div data-ng-show="hasCompleted" class="container-fluid">
-        <button data-ng-if="isShow()" data-ng-click="logout()">Вихід</button>
+
+        <nav class="ng-cloak navbar fixed-top" data-ng-if="isShow()">
+            <h1 class="navbar-brand">
+                <i class="fa fa-industry" aria-hidden="true"></i>&nbsp;{{appName}}</h1>
+            <form class="form-inline">
+                <button class="btn btn-success btn-sm" data-ng-click="logout()">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Вихід
+                </button>
+            </form>
+        </nav>
+
         <div data-ng-view></div>
+
     </div>
 
     <!-- AngularJS 1.6.6 -->

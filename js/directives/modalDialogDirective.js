@@ -4,7 +4,8 @@ myApp.directive('modalDialog', function () {
         replace: true,
         templateUrl: '../templates/modalDialog.html',
         scope: {
-            show: '='
+            show: '=',
+            title: '@'
         },
         transclude: true,
         link: function (scope, element, attrs) {

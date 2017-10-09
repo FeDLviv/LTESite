@@ -1,12 +1,32 @@
-<div class="row">
-    <label for="">Авторизація:
-        <input type="text" placeholder="Користувач" data-ng-model="user">
-    </label>
-    <label for="">Пароль:
-        <input type="password" placeholder="Пароль" data-ng-model="password">
-    </label>
-    <button data-ng-click="authorized()">Ввійти</button>
+<div class="row justify-content-center">
+
+    <form id="authorized" name="auth" class="m-5 p-5" data-ng-submit="authorized()">
+
+        <div class="form-group row">
+            <label class="col-3 my-2 col-form-label">Користувач:</label>
+            <div class="col-9 my-2 input-group input-group-lg">
+                <div class="input-group-addon">
+                    <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                </div>
+                <input class="form-control" type="text" required data-ng-model="user">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-3 my-2 col-form-label">Пароль:</label>
+            <div class="col-9 my-2 input-group input-group-lg">
+                <div class="input-group-addon">
+                    <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
+                </div>
+                <input class="form-control" type="password" required data-ng-model="password">
+            </div>
+        </div>
+        <button class="btn btn-primary btn-lg btn-block my-2" type="submit" data-ng-disabled="auth.$invalid">Вхід</button>
+
+    </form>
+
 </div>
-<modal-dialog show="modalShow">
-    <p>Ви не авторизовані</p>
+
+<modal-dialog class="animation" title="{{appName}}" show="modalShow" data-ng-class="{'no-animate': !pageLoaded}">
+    <p>На жаль Ви не пройшли авторизацію</p>
 </modal-dialog>
