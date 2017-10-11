@@ -10,16 +10,20 @@
             <table class="table table-bordered table-sm">
                 <thead>
                     <tr>
+                        <th>id</th>
                         <th>серія</th>
                         <th>тип</th>
                         <th>потужність</th>
+                        <th>оберти</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="mot in motorsInObject">
+                        <td>{{mot.idObject}}</td>
                         <td>{{mot.series}}</td>
                         <td>{{mot.type}}</td>
                         <td>{{mot.power}}</td>
+                        <td>{{mot.speed | nullFilter}}</td>
                     </tr>
                 </tbody>
             </table>
