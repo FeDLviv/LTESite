@@ -76,4 +76,14 @@ myApp.controller('motorsCtrl', function ($scope, $http) {
         }
     }
 
+    $scope.expand = function (motor) {
+        if (!motor.expand) {
+            //$http.get();
+            $scope.test = motor.idWiloArt;
+            motor.expand = true
+        } else {
+            motor.expand = false;
+        }
+    }
+
 });
