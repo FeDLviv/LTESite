@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * Клас синглтон для роботи з базою даних
+ */
 class MyDB
 {
-
+    
     const HOST = "localhost";
     const DB = "lte_energo";
     const USER = "wges";
@@ -12,6 +15,11 @@ class MyDB
     
     private $pdo;
 
+    /**
+     * Статичний метод, котрий повертає об'єкт даного класу
+     *
+     * @return MyDB $instance 
+     */
     public static function getInstance()
     {
         if (self::$instance === null) {
@@ -32,22 +40,37 @@ class MyDB
         }
     }
 
-    public function select($query)
+    private function __clone() {
+        
+    }
+
+    private function __wakeup() {
+        
+    }
+
+    /**
+     * Метод відправляє SELECT запит до бази даних
+     *
+     * @param string $query Запит до бази даних
+     * @param bool $json Чи повертати результат запиту до бази даних в JSON форматі
+     * @return Повертає результат запиту до бази даних
+     */
+    public function select($query, $isJson)
     {
         try {
-            if (count(func_get_args()) == 1) {
+            if (count(func_get_args()) == 2) {
                 $statement = $this->pdo->query($query);
                 $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-                return json_encode($rows, JSON_NUMERIC_CHECK);
+                return $isJson ? json_encode($rows, JSON_NUMERIC_CHECK) : $rows;
             } else {
                 $statement = $this->pdo->prepare($query);
                 $parametrs = [];
-                for ($i = 1; $i < func_num_args(); $i++) {
+                for ($i = 2; $i < func_num_args(); $i++) {
                     $parametrs[] = func_get_arg($i);
                 }
                 $statement->execute($parametrs);
                 $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-                return json_encode($data, JSON_NUMERIC_CHECK);
+                return $isJson ? json_encode($data, JSON_NUMERIC_CHECK) : $data;
             }
         } catch (PDOException $e) {
             header("HTTP/1.1 500 Internal Server Error");

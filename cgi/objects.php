@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
             WHERE 
                 idObject = ?;
 HERE;
-        echo MyDB::getInstance()->select($query, trim($_GET["id"]));
+        echo MyDB::getInstance()->select($query, true, trim($_GET["id"]));
     } else {
         $query = <<<HERE
             SELECT
@@ -40,6 +40,6 @@ HERE;
                     SUBSTRING_INDEX(address, ',', 1) COLLATE utf8_unicode_ci,
                     CAST(SUBSTRING_INDEX(address, ',', -1) AS unsigned);
 HERE;
-        echo MyDB::getInstance()->select($query);
+        echo MyDB::getInstance()->select($query, true);
     }
 }

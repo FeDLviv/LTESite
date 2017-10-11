@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
             WHERE
                 idObject = ?;
 HERE;
-        echo MyDB::getInstance()->select($query, trim($_GET["idObject"]));
+        echo MyDB::getInstance()->select($query, true, trim($_GET["idObject"]));
     } else {
         $query = <<<HERE
         SELECT 
@@ -24,6 +24,6 @@ HERE;
         FROM 
             motors_lte;
 HERE;
-        echo MyDB::getInstance()->select($query);
+        echo MyDB::getInstance()->select($query, true);
     }
 }
