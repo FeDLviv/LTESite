@@ -30,12 +30,40 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
             missions.mission;
 HERE;
         echo MyDB::getInstance()->select($query, true, trim($_GET["idObject"]));
+    } elseif(isset($_GET["idMotorHistory"])) {
+        $query = <<<HERE
+            SELECT
+                type,
+                address,
+                DATE_FORMAT(dateTrash, "%Y-%m-%d") AS dateTrash
+            FROM
+                motors_lte_history
+            WHERE 
+                idMotorsLTE = ?
+            ORDER BY
+                dateTrash DESC;
+HERE;
+        echo MyDB::getInstance()->select($query, true, trim($_GET["idMotorHistory"]));
+    } elseif(isset($_GET["idMotorRepair"])) {
+        $query = <<<HERE
+            SELECT 
+                DATE_FORMAT(dateRepair, "%Y-%m-%d") AS dateRepair,
+                typeRepair,
+                notes
+            FROM 
+                motorRepairs
+            WHERE
+                idMotorsLTE = ?
+            ORDER BY
+                dateRepair DESC;
+HERE;
+        echo MyDB::getInstance()->select($query, true, trim($_GET["idMotorRepair"]));
     } else {
         $query = <<<HERE
-        SELECT 
-            *
-        FROM 
-            motors_lte;
+            SELECT 
+                *
+            FROM 
+                motors_lte;
 HERE;
         echo MyDB::getInstance()->select($query, true);
     }

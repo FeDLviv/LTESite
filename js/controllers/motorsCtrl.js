@@ -78,9 +78,26 @@ myApp.controller('motorsCtrl', function ($scope, $http) {
 
     $scope.expand = function (motor) {
         if (!motor.expand) {
-            //$http.get();
-            $scope.test = motor.idWiloArt;
-            motor.expand = true
+            $http.get("../cgi/motors.php", {
+                params: {
+                    idMotorHistory: motor.idMotorsLTE
+                }
+            }).then(function (response) {
+                $scope.motorHistory = response.data;
+                motor.expand = true;
+            }, function (response) {
+                alert(response.statusText + " " + response.data);
+            });
+            $http.get("../cgi/motors.php", {
+                params: {
+                    idMotorRepair: motor.idMotorsLTE
+                }
+            }).then(function (response) {
+                $scope.motorRepairs = response.data;
+                motor.expand = true;
+            }, function (response) {
+                alert(response.statusText + " " + response.data);
+            });
         } else {
             motor.expand = false;
         }

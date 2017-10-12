@@ -40,7 +40,16 @@
                         </td>
                     </tr>
                     <tr data-ng-repeat-end="" data-ng-show="mot.expand">
-                        <td colspan="10">{{test}}</td>
+                        <td colspan="10">
+                            <h5>Переміщення:</h5>
+                            <ul>
+                                <li data-ng-repeat="x in motorHistory" data-ng-bind-template="{{x.type}} {{x.address}} знятий {{x.dateTrash}}"></li>
+                            </ul>
+                            <h5>Ремонти:</h5>
+                            <ul>
+                                <li data-ng-repeat="y in motorRepairs" data-ng-bind-template="{{y.dateRepair}} - {{y.typeRepair}}   {{y.notes}}"></li>
+                            </ul>
+                        </td>
                     </tr>
                 </tbody>
             </table>
