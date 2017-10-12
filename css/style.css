@@ -1,3 +1,11 @@
+/* ПІДКЛЮЧЕННЯ ШРИФТІВ */
+
+@font-face {
+  font-family: "PT Mono";
+  src: url("../fonts/PTM55FT.ttf");
+}
+
+
 /* СТИЛЬ AngularJS ДЛЯ ПРИХОВУВАННЯ КОМПОНЕНТІВ */
 
 [ng\:cloak],
@@ -113,6 +121,10 @@
 
 
 /* СТИЛЬ ТАБЛИЦІ  */
+
+table {
+  font-family: "PT Mono";
+}
 
 th {
   text-align: center;
