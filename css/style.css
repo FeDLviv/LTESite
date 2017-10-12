@@ -193,6 +193,7 @@ div[data-angular-treeview] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  padding-left: 0;
 }
 
 div[data-tree-model] ul {
@@ -202,7 +203,7 @@ div[data-tree-model] ul {
 }
 
 div[data-tree-model] li {
-  padding: 0.2em 0.5em;
+  padding: 0.3em 0.7em;
   white-space: nowrap;
 }
 
