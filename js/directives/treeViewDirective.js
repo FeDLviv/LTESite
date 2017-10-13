@@ -54,8 +54,10 @@ myApp.directive('treeModel', function ($compile) {
                             scope[treeId].currentNode.selected = undefined;
                         }
 
-                        //set highlight to selected node
-                        selectedNode.selected = 'selected';
+                        if (!selectedNode.children.length) {
+                            //set highlight to selected node
+                            selectedNode.selected = 'selected';
+                        }
 
                         //set currentNode
                         scope[treeId].currentNode = selectedNode;
