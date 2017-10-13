@@ -54,9 +54,13 @@ myApp.directive('treeModel', function ($compile) {
                             scope[treeId].currentNode.selected = undefined;
                         }
 
+                        // MY
                         if (!selectedNode.children.length) {
                             //set highlight to selected node
                             selectedNode.selected = 'selected';
+                        } else {
+                            //Collapse or Expand
+                            selectedNode.collapsed = !selectedNode.collapsed;
                         }
 
                         //set currentNode

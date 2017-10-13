@@ -193,7 +193,7 @@ div[data-angular-treeview] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  padding-left: 0;
+  padding: 0;
 }
 
 div[data-tree-model] ul {
