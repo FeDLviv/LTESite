@@ -230,5 +230,16 @@ div[data-tree-model] li span {
 
 div[data-tree-model] li .selected {
   font-weight: bold;
-  border-bottom: 2px solid #5bc0de;
+}
+
+div[data-tree-model] .under {
+  height: 2px;
+  width: 0;
+  background: #5bc0de;
+  transition: width ease-in-out 0.3s;
+  /* margin-left: 1.8em; */
+}
+
+div[data-tree-model] .under.line {
+  width: 100%;
 }
