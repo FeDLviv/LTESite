@@ -1,7 +1,7 @@
 myApp.factory('userService', function () {
 
     var user;
-    var authorized = false;
+    var authorized;
 
     return {
         getUser: function () {

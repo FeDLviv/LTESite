@@ -20,9 +20,13 @@ if (isset($_SESSION["user"]) && $_SESSION["browser"] == $_SERVER["HTTP_USER_AGEN
             $_SESSION["browser"] = $_SERVER["HTTP_USER_AGENT"];
             $_SESSION["address"] = $_SERVER['REMOTE_ADDR'];
     } else {
+        session_unset();
+        session_destroy();
         $response["status"] = "error";
     }
 } else {
+    session_unset();
+    session_destroy();
     $response["status"] = "error";
 }
 

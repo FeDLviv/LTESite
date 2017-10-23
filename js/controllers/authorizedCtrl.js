@@ -1,5 +1,4 @@
 myApp.controller('authorizedCtrl', function ($scope, $http, $location, userService) {
-    $scope.modalShow = false;
     $scope.authorized = function () {
         $http.post('../cgi/authorized.php', "user=" + $scope.user + "&password=" + $scope.password, {
             headers: {
