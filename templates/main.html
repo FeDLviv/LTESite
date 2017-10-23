@@ -34,10 +34,10 @@
                         <td>{{mot.type}}</td>
                         <td>{{mot.power}}</td>
                         <td>{{mot.speed | nullFilter}}</td>
-                        <td>{{mot.threePhase}}</td>
-                        <td>{{mot.inventory}}</td>
-                        <td>{{mot.bearing1}}</td>
-                        <td>{{mot.bearing2}}</td>
+                        <td>{{mot.threePhase | phaseFilter}}</td>
+                        <td>{{mot.inventory | nullFilter}}</td>
+                        <td>{{mot.bearing1 | nullFilter}}</td>
+                        <td>{{mot.bearing2 | nullFilter}}</td>
                         <td>
                             <button class="btn btn-outline-primary" data-ng-click="expand(mot)">+</button>
                         </td>
