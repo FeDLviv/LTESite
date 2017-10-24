@@ -5,7 +5,7 @@ myApp.constant('settings', {
 });
 
 myApp.config(function ($routeProvider, $locationProvider) {
-    $routeProvider.when('/main', {
+    $routeProvider.when('/objects', {
         resolve: {
             check: function ($location, userService) {
                 if (!userService.isAuthorized()) {
@@ -13,14 +13,24 @@ myApp.config(function ($routeProvider, $locationProvider) {
                 }
             }
         },
-        templateUrl: 'templates/main.html',
-        controller: 'motorsCtrl'
+        templateUrl: 'templates/objects.html',
+        controller: 'objectsCtrl'
+    }).when('/subabonents', {
+        resolve: {
+            check: function ($location, userService) {
+                if (!userService.isAuthorized()) {
+                    $location.path('/authorized');
+                }
+            }
+        },
+        templateUrl: 'templates/subabonents.html',
+        controller: 'subabonentsCtrl'
     }).when('/authorized', {
         templateUrl: 'templates/authorized.html',
         controller: 'authorizedCtrl'
     });
     $routeProvider.otherwise({
-        redirectTo: '/main'
+        redirectTo: '/objects'
     });
     $locationProvider.html5Mode({
         enabled: true,

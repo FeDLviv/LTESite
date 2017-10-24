@@ -127,6 +127,19 @@ nav {
   color: #FFF;
 }
 
+nav a {
+  outline: none;
+}
+
+nav a:hover {
+  text-decoration: none;
+}
+
+nav a.active-menu {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 
 /* СТИЛЬ ТАБЛИЦІ  */
 
@@ -143,6 +156,7 @@ th {
 td {
   text-align: center;
   vertical-align: middle !important;
+  padding: 0 5px !important;
   white-space: nowrap;
 }
 
@@ -257,4 +271,33 @@ div[data-tree-model] .under {
 
 div[data-tree-model] .under.line {
   width: 100%;
+}
+
+
+/*СТИЛЬ ДОДАТКОВОЇ ПАНЕЛІ */
+
+.additional-panel {
+  z-index: 100;
+  position: fixed;
+  bottom: 0.5em;
+  right: 0.5em;
+  font-size: 2em;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+.additional-panel:hover {
+  opacity: 1;
+}
+
+.additional-panel-menu {
+  position: fixed;
+  bottom: 0.5em;
+  right: -2000px;
+  transition: all 0.5s ease;
+}
+
+.additional-panel-menu.show {
+  right: 5em;
 }

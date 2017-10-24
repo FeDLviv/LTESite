@@ -1,0 +1,74 @@
+<div class="row">
+
+    <div class="flex-component col-3" data-angular-treeview="true" data-tree-id="objectsTree" data-tree-model="objectsData" data-node-id="id"
+        data-node-label="label" data-node-children="children">
+    </div>
+
+    <div class="flex-component col-9">
+        <div>
+
+            <h3>{{title}}</h3>
+
+            <div data-ng-show="showNotData">
+                На жаль даних по цьому об'єкту немає
+            </div>
+
+            <table class="table table-bordered table-sm table-hover" data-ng-show="isShowTable()">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>ID</th>
+                        <th>ПРИЗНАЧЕННЯ</th>
+                        <th>СЕРІЯ</th>
+                        <th>ТИП</th>
+                        <th>P(кВт)</th>
+                        <th>r/min</th>
+                        <th>КІЛЬКІСТЬ ФАЗ</th>
+                        <th>ІНВЕНТАРНИЙ НОМЕР</th>
+                        <th>ПІДШИПНИК (перед/низ)</th>
+                        <th>ПІДШИПНИК (зад/верх)</th>
+                        <th>ДОДАТКОВО</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat-start="mot in motorsInObject" data-ng-class="{'table-success': mot.idWiloArt}">
+                        <td>{{mot.idMotorsLTE}}</td>
+                        <td>{{mot.mission}}</td>
+                        <td>{{mot.series}}</td>
+                        <td>{{mot.type}}</td>
+                        <td>{{mot.power}}</td>
+                        <td>{{mot.speed | nullFilter}}</td>
+                        <td>{{mot.threePhase | phaseFilter}}</td>
+                        <td>{{mot.inventory | nullFilter}}</td>
+                        <td>{{mot.bearing1 | nullFilter}}</td>
+                        <td>{{mot.bearing2 | nullFilter}}</td>
+                        <td>
+                            <button class="btn btn-outline-primary" data-ng-click="expand(mot)">+</button>
+                        </td>
+                    </tr>
+                    <tr data-ng-repeat-end="" data-ng-show="mot.expand">
+                        <td colspan="10">
+                            <h5>Переміщення:</h5>
+                            <ul>
+                                <li data-ng-repeat="x in motorHistory" data-ng-bind-template="{{x.type}} {{x.address}} знятий {{x.dateTrash}}"></li>
+                            </ul>
+                            <h5>Ремонти:</h5>
+                            <ul>
+                                <li data-ng-repeat="y in motorRepairs" data-ng-bind-template="{{y.dateRepair}} - {{y.typeRepair}}   {{y.notes}}"></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="additional-panel" data-ng-show="showAddPanel">
+                <i class="fa fa-info-circle fa-border text-success" aria-hidden="true" data-ng-click="showMenu()"></i>
+            </div>
+            <div class="additional-panel-menu" data-ng-class="menuClass">
+                <button class="btn">Друк</button>
+                <button class="btn">Файли</button>
+            </div>
+
+        </div>
+        <!-- <div ui-grid="{ data: motorsInObject }"></div> -->
+    </div>
+</div>

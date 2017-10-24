@@ -23,6 +23,7 @@
         <nav class="ng-cloak navbar fixed-top" data-ng-if="isShow()">
             <h1 class="navbar-brand">
                 <i class="fa fa-industry" aria-hidden="true"></i>&nbsp;{{appName}}</h1>
+            <a data-ng-repeat="item in menu" data-ng-href="{{item.path}}" data-ng-class="isActiveItem(item.path)">{{item.title}}</a>
             <form class="form-inline">
                 <button class="btn btn-outline-success btn-sm" data-ng-click="logout()">
                     <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Вихід
@@ -51,7 +52,8 @@
     <script src="js/filters/phaseFilter.js"></script>
     <script src="js/controllers/mainCtrl.js"></script>
     <script src="js/controllers/authorizedCtrl.js"></script>
-    <script src="js/controllers/motorsCtrl.js"></script>
+    <script src="js/controllers/objectsCtrl.js"></script>
+    <script src="js/controllers/subabonetsCtrl.js"></script>
 
 </body>
 
