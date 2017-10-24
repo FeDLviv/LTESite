@@ -155,9 +155,13 @@ th {
 
 td {
   text-align: center;
-  vertical-align: middle !important;
   padding: 0 5px !important;
   white-space: nowrap;
+}
+
+td .btn {
+  width: 90%;
+  line-height: 0;
 }
 
 td:nth-child(2) {
@@ -236,6 +240,10 @@ div[data-tree-model] li {
   white-space: nowrap;
 }
 
+div[data-tree-model] li .cell {
+  display: inline-block;
+}
+
 div[data-tree-model] li .expanded:before {
   font: normal 1.5em FontAwesome;
   content: "\f07c";
@@ -266,11 +274,10 @@ div[data-tree-model] .under {
   width: 0;
   background: #5bc0de;
   transition: width ease-in-out 0.3s;
-  /* margin-left: 1.8em; */
 }
 
 div[data-tree-model] .under.line {
-  width: 100%;
+  width: 101%;
 }
 
 
