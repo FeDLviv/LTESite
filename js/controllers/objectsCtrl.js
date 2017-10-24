@@ -117,12 +117,4 @@ myApp.controller('objectsCtrl', function ($scope, $http) {
         }
     }
 
-    $scope.showMenu = function () {
-        if ($scope.menuClass == '') {
-            $scope.menuClass = "show";
-        } else {
-            $scope.menuClass = '';
-        }
-    }
-
 });

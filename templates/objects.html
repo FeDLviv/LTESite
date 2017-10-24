@@ -61,14 +61,32 @@
             </table>
 
             <div class="additional-panel" data-ng-show="showAddPanel">
-                <i class="fa fa-info-circle fa-border text-success" aria-hidden="true" data-ng-click="showMenu()"></i>
+                <i class="fa fa-info-circle fa-border text-success" aria-hidden="true" data-ng-click="toggleAddPanelClass = !toggleAddPanelClass"></i>
+                <div class="additional-panel-menu" data-ng-class="{'show' : toggleAddPanelClass}">
+                    <div class="btn-group btn-group-lg"></div>
+                    <button class="btn btn-outline-primary">
+                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbspФайли
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="fa fa-user-secret" aria-hidden="true"></i>&nbspДодаткова інформація
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="fa fa-comment" aria-hidden="true"></i>&nbspПримітки
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>&nbspРобочий проект
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="fa fa-print" aria-hidden="true"></i>&nbspДрук
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="fa fa-file-excel-o" aria-hidden="true"></i>&nbspЕкспорт
+                    </button>
+                </div>
             </div>
-            <div class="additional-panel-menu" data-ng-class="menuClass">
-                <button class="btn">Друк</button>
-                <button class="btn">Файли</button>
-            </div>
-
         </div>
-        <!-- <div ui-grid="{ data: motorsInObject }"></div> -->
+
     </div>
+    <!-- <div ui-grid="{ data: motorsInObject }"></div> -->
+</div>
 </div>
