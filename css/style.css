@@ -151,6 +151,23 @@ table {
 th {
   text-align: center;
   vertical-align: middle !important;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+/* th span {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+} */
+
+th:last-child {
+  cursor: default;
 }
 
 td {
@@ -159,13 +176,13 @@ td {
   white-space: nowrap;
 }
 
+td:nth-child(2) {
+  text-align: left;
+}
+
 td .btn {
   width: 90%;
   line-height: 0;
-}
-
-td:nth-child(2) {
-  text-align: left;
 }
 
 
@@ -273,6 +290,8 @@ div[data-tree-model] .under {
   height: 2px;
   width: 0;
   background: #5bc0de;
+  -webkit-transition: width ease-in-out 0.3s;
+  -o-transition: width ease-in-out 0.3s;
   transition: width ease-in-out 0.3s;
 }
 
@@ -291,6 +310,8 @@ div[data-tree-model] .under.line {
   font-size: 2em;
   cursor: pointer;
   opacity: 0.5;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
@@ -302,6 +323,8 @@ div[data-tree-model] .under.line {
   position: fixed;
   bottom: 0.5em;
   right: -2000px;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 

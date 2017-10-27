@@ -82,6 +82,67 @@ myApp.controller('objectsCtrl', function ($scope, $http) {
         }
     }
 
+    $scope.tableHeader = [{
+        label: 'ID',
+        value: 'idMotorsLTE'
+    }, {
+        label: 'ПРИЗНАЧЕННЯ',
+        value: 'mission'
+    }, {
+        label: 'СЕРІЯ',
+        value: 'series'
+    }, {
+        label: 'ТИП',
+        value: 'type'
+    }, {
+        label: 'P(кВт)',
+        value: 'power'
+    }, {
+        label: 'r/min',
+        value: 'speed'
+    }, {
+        label: 'КІЛЬКІСТЬ ФАЗ',
+        value: 'threePhase'
+    }, {
+        label: 'ІНВЕНТАРНИЙ НОМЕР',
+        value: 'inventory'
+    }, {
+        label: 'ПІДШИПНИК (перед/низ)',
+        value: 'bearing1'
+    }, {
+        label: 'ПІДШИПНИК (зад/верх)',
+        value: 'bearing2'
+    }, {
+        label: 'ДОДАТКОВО',
+        value: ''
+    }, ];
+
+    $scope.sortCol = 'mission';
+
+    $scope.sort = function (nameColumn) {
+        if ($scope.sortCol.charAt(0) == '-' && nameColumn == $scope.sortCol.substr(1)) {
+            $scope.sortCol = '';
+        } else {
+            if ($scope.sortCol == nameColumn) {
+                $scope.sortCol = '-' + $scope.sortCol;
+            } else {
+                $scope.sortCol = nameColumn;
+            }
+        }
+    }
+
+    $scope.headerStyle = function (nameColumn) {
+        if ($scope.sortCol == nameColumn && nameColumn != '') {
+            return {
+                "color": "#5BC0DE"
+            };
+        } else if ($scope.sortCol.charAt(0) == '-' && nameColumn == $scope.sortCol.substr(1)) {
+            return {
+                "color": "#428BCA"
+            };
+        }
+    }
+
     $scope.expand = function (motor) {
         if (!motor.expand) {
             $http.get("../cgi/motors.php", {
