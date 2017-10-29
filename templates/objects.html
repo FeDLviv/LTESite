@@ -42,14 +42,16 @@
                     </tr>
                     <tr data-ng-repeat-end="" data-ng-show="mot.expand">
                         <td colspan="11">
-                            <h5>Переміщення:</h5>
-                            <ul>
-                                <li data-ng-repeat="x in motorHistory" data-ng-bind-template="{{x.type}} {{x.address}} знятий {{x.dateTrash}}"></li>
-                            </ul>
-                            <h5>Ремонти:</h5>
-                            <ul>
-                                <li data-ng-repeat="y in motorRepairs" data-ng-bind-template="{{y.dateRepair}} - {{y.typeRepair}}   {{y.notes}}"></li>
-                            </ul>
+                            <expander title="Переміщення:" data-ng-if="mot.motorHistory.length">
+                                <ul>
+                                    <li data-ng-repeat="x in mot.motorHistory" data-ng-bind-template="{{x.type}} {{x.address}} знятий {{x.dateTrash}}"></li>
+                                </ul>
+                            </expander>
+                            <expander title="Ремонти:" data-ng-if="mot.motorRepairs.length">
+                                <ul>
+                                    <li data-ng-repeat="y in mot.motorRepairs" data-ng-bind-template="{{y.dateRepair}} - {{y.typeRepair}}   {{y.notes}}"></li>
+                                </ul>
+                            </expander>
                         </td>
                     </tr>
                 </tbody>

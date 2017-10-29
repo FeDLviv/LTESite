@@ -331,3 +331,32 @@ div[data-tree-model] .under.line {
 .additional-panel-menu.show {
   right: 2.1em;
 }
+
+
+/* СТИЛЬ ЕКСПАНДЕРА */
+
+.expander {
+  margin: 0.5em 0em;
+  text-align: start;
+  border: 1px solid #222;
+}
+
+.expander .title {
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  background: #222;
+  color: #FFF;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.expander .body.ng-hide-add,
+.expander .body.ng-hide-remove {
+  max-height: 999px;
+  transition: all 250ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+
+.expander .body.ng-hide {
+  max-height: 0px;
+  opacity: 0;
+}

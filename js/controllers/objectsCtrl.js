@@ -150,17 +150,16 @@ myApp.controller('objectsCtrl', function ($scope, $http) {
                     idMotorHistory: motor.idMotorsLTE
                 }
             }).then(function (response) {
-                $scope.motorHistory = response.data;
-                motor.expand = true;
+                motor.motorHistory = response.data;
+                return $http.get("../cgi/motors.php", {
+                    params: {
+                        idMotorRepair: motor.idMotorsLTE
+                    }
+                });
             }, function (response) {
                 alert(response.statusText + " " + response.data);
-            });
-            $http.get("../cgi/motors.php", {
-                params: {
-                    idMotorRepair: motor.idMotorsLTE
-                }
             }).then(function (response) {
-                $scope.motorRepairs = response.data;
+                motor.motorRepairs = response.data;
                 motor.expand = true;
             }, function (response) {
                 alert(response.statusText + " " + response.data);

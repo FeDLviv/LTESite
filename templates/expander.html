@@ -1,0 +1,7 @@
+<div class="expander">
+    <div class="title" data-ng-click="toggleEx()">
+        <i class="fa" data-ng-class="{'fa-plus-circle' : !show, 'fa-minus-circle' : show}" aria-hidden="true"></i>
+        {{title}}
+    </div>
+    <div class="body" data-ng-show="show" data-ng-transclude></div>
+</div>
