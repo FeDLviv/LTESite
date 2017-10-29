@@ -8,8 +8,12 @@ myApp.directive('expander', function () {
         },
         transclude: true,
         link: function (scope, element, attrs) {
+            scope.styleLoad = {
+                height: 0
+            }
             scope.show = false;
             scope.toggleEx = function () {
+                scope.styleLoad = null;
                 scope.show = !scope.show;
             };
         }
