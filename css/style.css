@@ -170,6 +170,18 @@ th:last-child {
   cursor: default;
 }
 
+tr td div {
+  max-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: all 1000ms;
+}
+
+tr.show td div {
+  max-height: 999px;
+  transition: all 2000ms;
+}
+
 td {
   text-align: center;
   padding: 0 5px !important;
@@ -353,10 +365,11 @@ div[data-tree-model] .under.line {
 .expander .body.ng-hide-add,
 .expander .body.ng-hide-remove {
   max-height: 999px;
-  transition: all 250ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  transition: all 300ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
 }
 
 .expander .body.ng-hide {
-  max-height: 0px;
+  height: 0;
+  max-height: 0;
   opacity: 0;
 }

@@ -25,33 +25,57 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-ng-repeat-start="mot in motorsInObject | orderBy: sortCol" data-ng-class="{'table-success': mot.idWiloArt}">
-                        <td>{{mot.idMotorsLTE}}</td>
-                        <td>{{mot.mission}}</td>
-                        <td>{{mot.series}}</td>
-                        <td>{{mot.type}}</td>
-                        <td>{{mot.power}}</td>
-                        <td>{{mot.speed | nullFilter}}</td>
-                        <td>{{mot.threePhase | phaseFilter}}</td>
-                        <td>{{mot.inventory | nullFilter}}</td>
-                        <td>{{mot.bearing1 | nullFilter}}</td>
-                        <td>{{mot.bearing2 | nullFilter}}</td>
+                    <tr class="show" data-ng-repeat-start="mot in motorsInObject | orderBy: sortCol" data-ng-class="{'table-success': mot.idWiloArt}">
                         <td>
-                            <button class="btn btn-outline-primary" data-ng-click="expand(mot)">+</button>
+                            <div>{{mot.idMotorsLTE}}</div>
+                        </td>
+                        <td>
+                            <div>{{mot.mission}}</div>
+                        </td>
+                        <td>
+                            <div>{{mot.series}}</div>
+                        </td>
+                        <td>
+                            <div>{{mot.type}}</div>
+                        </td>
+                        <td>
+                            <div>{{mot.power}}</div>
+                        </td>
+                        <td>
+                            <div>{{mot.speed | nullFilter}}</div>
+                        </td>
+                        <td>
+                            <div>{{mot.threePhase | phaseFilter}}</div>
+                        </td>
+                        <td>
+                            <div>{{mot.inventory | nullFilter}}</div>
+                        </td>
+                        <td>
+                            <div>{{mot.bearing1 | nullFilter}}</div>
+                        </td>
+                        <td>
+                            <div>{{mot.bearing2 | nullFilter}}</div>
+                        </td>
+                        <td>
+                            <div>
+                                <button class="btn" data-ng-class="{'btn-outline-primary' : !mot.expand, 'btn-primary' : mot.expand}" data-ng-click="expand(mot)">{{ mot.expand ? "-" : "+" }}</button>
+                            </div>
                         </td>
                     </tr>
-                    <tr data-ng-repeat-end="" data-ng-show="mot.expand">
+                    <tr data-ng-repeat-end="" data-ng-class="{'show' : mot.expand}">
                         <td colspan="11">
-                            <expander title="Переміщення:" data-ng-if="mot.motorHistory.length">
-                                <ul>
-                                    <li data-ng-repeat="x in mot.motorHistory" data-ng-bind-template="{{x.type}} {{x.address}} знятий {{x.dateTrash}}"></li>
-                                </ul>
-                            </expander>
-                            <expander title="Ремонти:" data-ng-if="mot.motorRepairs.length">
-                                <ul>
-                                    <li data-ng-repeat="y in mot.motorRepairs" data-ng-bind-template="{{y.dateRepair}} - {{y.typeRepair}}   {{y.notes}}"></li>
-                                </ul>
-                            </expander>
+                            <div>
+                                <expander title="Переміщення:" data-ng-if="mot.motorHistory.length">
+                                    <ul>
+                                        <li data-ng-repeat="x in mot.motorHistory" data-ng-bind-template="{{x.type}} {{x.address}} знятий {{x.dateTrash}}"></li>
+                                    </ul>
+                                </expander>
+                                <expander title="Ремонти:" data-ng-if="mot.motorRepairs.length">
+                                    <ul>
+                                        <li data-ng-repeat="y in mot.motorRepairs" data-ng-bind-template="{{y.dateRepair}} - {{y.typeRepair}}   {{y.notes}}"></li>
+                                    </ul>
+                                </expander>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
