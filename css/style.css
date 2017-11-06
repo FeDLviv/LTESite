@@ -159,15 +159,27 @@ th {
   user-select: none;
 }
 
-
-/* th span {
+th span {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;
-} */
+  padding: 0 20px;
+  margin-left: -20px;
+  pointer-events: none;
+}
+
+th i {
+  margin-left: -20px;
+  pointer-events: none;
+}
 
 th:last-child {
   cursor: default;
+}
+
+th:last-child span {
+  padding: 5px;
+  margin: 0;
 }
 
 tr td div {

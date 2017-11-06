@@ -17,8 +17,7 @@
                 <thead class="thead-inverse">
                     <tr>
                         <th data-ng-repeat="title in tableHeader" data-ng-click="!$last && sort(title.value)" data-ng-style="headerStyle(title.value)">
-                            <!-- <span>{{title.label}}</span> -->
-                            {{title.label}}
+                            <span>{{title.label}}</span>
                             <i class="fa fa-sort" data-ng-if="!$last" data-ng-class="{'fa-sort-asc' : sortCol == title.value, 'fa-sort-desc' : sortCol == '-'+title.value}"
                                 aria-hidden="true"></i>
                         </th>
